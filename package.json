@@ -1,6 +1,6 @@
 {
   "name": "react-three-fiber",
-  "private": true,
+  "private": false,
   "version": "3.0.16",
   "description": "React-fiber renderer for THREE.js",
   "main": "web.cjs.js",
@@ -11,35 +11,6 @@
     "**"
   ],
   "sideEffects": false,
-  "scripts": {
-    "prebuild": "rimraf dist && npm run typegen",
-    "build": "rollup -c && yarn copy",
-    "prepare": "npm run build",
-    "eslint": "eslint src/**/*.{js,ts,jsx,tsx}",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "typecheck": "tsc --noEmit --strict --jsx react src/*",
-    "typegen": "tsc || true && prettier types/**/** --write",
-    "copy": "copyfiles package.json readme.md LICENSE dist && json -I -f dist/package.json -e \"this.private=false; this.devDependencies=undefined; this.optionalDependencies=undefined; this.scripts=undefined; this.husky=undefined; this.prettier=undefined; this.jest=undefined; this['lint-staged']=undefined;\" && cp -r types dist"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "prettier": {
-    "semi": false,
-    "trailingComma": "es5",
-    "singleQuote": true,
-    "jsxBracketSameLine": true,
-    "tabWidth": 2,
-    "printWidth": 120
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/drcmda/react-three-fiber.git"
@@ -74,50 +45,6 @@
     "react": ">=16.11",
     "react-dom": ">=16.11",
     "three": ">=0.111"
-  },
-  "devDependencies": {
-    "@babel/core": "7.7.0",
-    "@babel/plugin-transform-modules-commonjs": "7.7.0",
-    "@babel/plugin-transform-parameters": "7.4.4",
-    "@babel/plugin-transform-runtime": "7.6.2",
-    "@babel/plugin-transform-template-literals": "7.4.4",
-    "@babel/preset-env": "7.7.1",
-    "@babel/preset-react": "7.7.0",
-    "@babel/preset-typescript": "^7.7.0",
-    "@types/lodash-es": "^4.17.3",
-    "@types/react": "^16.9.11",
-    "@types/react-native": "^0.60.22",
-    "@types/react-reconciler": "^0.18.0",
-    "@types/scheduler": "^0.16.1",
-    "@typescript-eslint/eslint-plugin": "^2.6.1",
-    "@typescript-eslint/parser": "^2.6.1",
-    "babel-eslint": "^10.0.3",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "copyfiles": "^2.1.1",
-    "cypress": "^3.6.0",
-    "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^2.2.0",
-    "expo-gl": "^7.0.0",
-    "expo-three": "^5.2.0",
-    "husky": "^3.0.9",
-    "json": "^9.0.6",
-    "lint-staged": "^9.4.2",
-    "prettier": "^1.19.1",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "rimraf": "^3.0.0",
-    "rollup": "^1.26.5",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-size-snapshot": "^0.10.0",
-    "three": "^0.109.0",
-    "typescript": "^3.7.2",
-    "wait-on": "^3.3.0"
   },
   "collective": {
     "type": "opencollective",
